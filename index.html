@@ -1,12 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Social Demo</title>
 
 <style>
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +20,6 @@ body {
   font-family: Arial, sans-serif;
   background: #f0f2f5;
   min-height: 100vh;
-  color: #1c1e21;
 }
 
 .container {
@@ -35,36 +37,35 @@ body {
 
 .logo {
   color: #1877f2;
-  font-size: 46px;
+  font-size: 48px;
   font-weight: bold;
   margin-bottom: 12px;
 }
 
 .left p {
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 23px;
+  color: #1c1e21;
+  line-height: 1.4;
 }
 
 .card {
   width: 396px;
   background: white;
-  padding: 22px;
-  border-radius: 10px;
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.12);
 }
 
 .notice {
   background: #e7f3ff;
   color: #174a80;
-  padding: 11px;
+  padding: 10px;
   border-radius: 6px;
   font-size: 13px;
-  line-height: 1.5;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
 input {
-  display: block;
   width: 100%;
   padding: 14px;
   margin-bottom: 12px;
@@ -78,7 +79,7 @@ input:focus {
   border-color: #1877f2;
 }
 
-.submit-btn {
+.login {
   width: 100%;
   padding: 13px;
   background: #1877f2;
@@ -90,60 +91,25 @@ input:focus {
   cursor: pointer;
 }
 
-.submit-btn:hover {
+.login:hover {
   background: #166fe5;
 }
 
-.submit-btn:disabled {
+.login:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.forgot {
-  display: block;
-  text-align: center;
-  color: #1877f2;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 17px 0;
-}
-
-.forgot:hover {
-  text-decoration: underline;
-}
-
-.divider {
-  border: 0;
-  border-top: 1px solid #dadde1;
-  margin: 20px 0;
-}
-
-.create-account {
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-  padding: 14px 25px;
-  background: #36b52b;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: bold;
-  border-radius: 8px;
-}
-
-.create-account:hover {
-  background: #2e9f25;
-}
-
 .status {
-  margin-top: 14px;
+  margin-top: 12px;
   text-align: center;
   font-size: 14px;
-  line-height: 1.5;
+  color: #333;
   overflow-wrap: anywhere;
 }
 
 @media(max-width: 768px) {
+
   .container {
     flex-direction: column;
     gap: 25px;
@@ -151,18 +117,20 @@ input:focus {
   }
 
   .logo {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .left p {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .card {
     width: 100%;
     max-width: 396px;
   }
+
 }
+
 </style>
 </head>
 
@@ -171,20 +139,22 @@ input:focus {
 <div class="container">
 
   <div class="left">
+
     <div class="logo">Social Demo</div>
 
     <p>
-      এটি একটি পরীক্ষামূলক ওয়েব ফর্ম।
-      HTML, CSS এবং Google Sheets সংযোগ শেখার জন্য তৈরি।
+      এটি HTML, CSS ও JavaScript শেখার
+      জন্য তৈরি একটি পরীক্ষামূলক ওয়েব ফর্ম।
     </p>
+
   </div>
+
 
   <div class="card">
 
     <div class="notice">
-      শিক্ষামূলক ডেমো: এখানে শুধু কাল্পনিক নাম,
-      পরীক্ষামূলক ইমেইল ও সাধারণ নোট ব্যবহার করুন।
-      কোনো পাসওয়ার্ড দেবেন না।
+      এটি একটি শিক্ষামূলক ডেমো।
+      এখানে শুধু কাল্পনিক তথ্য ব্যবহার করুন।
     </div>
 
     <form id="demoForm">
@@ -192,8 +162,8 @@ input:focus {
       <input
         type="text"
         name="name"
-        placeholder="ডেমো নাম"
-        maxlength="100"
+        placeholder="কাল্পনিক নাম"
+        maxlength="60"
         required
       >
 
@@ -208,57 +178,53 @@ input:focus {
       <input
         type="text"
         name="note"
-        placeholder="পরীক্ষামূলক নোট"
+        placeholder="মন্তব্য (ঐচ্ছিক)"
         maxlength="200"
       >
 
-      <button class="submit-btn" type="submit">
-        Submit Demo
+      <button class="login" type="submit">
+        ডেমো তথ্য পাঠাও
       </button>
-
-      <a href="#" class="forgot"
-         onclick="return false;">
-        Forgot demo details?
-      </a>
-
-      <hr class="divider">
-
-      <a href="#" class="create-account"
-         onclick="return false;">
-        Create demo profile
-      </a>
 
     </form>
 
-    <p id="status" class="status" aria-live="polite"></p>
+    <p id="status" class="status"></p>
 
   </div>
+
 </div>
+
 
 <script>
 
-// Google Apps Script Web App URL
+/********** APPS SCRIPT CONNECTION **********/
+
+// শুধু এই লিংকটি পরিবর্তন করবে
+
 const scriptURL =
 "https://script.google.com/macros/s/AKfycbytSGynLJMPPqF57tIjtAwKOnX81GWspo4nBq1QYzZZuDfaLzn_NzM5bAcUhEZrxdxejA/exec";
 
+
+/********** FORM SUBMISSION **********/
+
 const form = document.getElementById("demoForm");
-const statusText = document.getElementById("status");
-const submitButton = form.querySelector(".submit-btn");
+
+const status = document.getElementById("status");
 
 form.addEventListener("submit", async function(event) {
 
   event.preventDefault();
 
-  if (!form.reportValidity()) {
-    return;
-  }
+  const button = form.querySelector("button");
 
-  submitButton.disabled = true;
-  statusText.textContent = "তথ্য পাঠানো হচ্ছে...";
+  button.disabled = true;
+
+  status.textContent = "তথ্য পাঠানো হচ্ছে...";
 
   try {
 
     const formData = new FormData(form);
+
     const data = new URLSearchParams();
 
     for (const [key, value] of formData.entries()) {
@@ -271,21 +237,23 @@ form.addEventListener("submit", async function(event) {
       body: data
     });
 
-    statusText.textContent =
-      "অনুরোধ পাঠানো হয়েছে। Google Sheet-এ নতুন Row এসেছে কি না যাচাই করুন।";
+    status.textContent =
+      "অনুরোধ পাঠানো হয়েছে। Google Sheet-এ যাচাই করুন।";
 
     form.reset();
 
-  } catch (error) {
+  }
 
-    statusText.textContent =
-      "অনুরোধ পাঠানো যায়নি। ইন্টারনেট ও Apps Script URL পরীক্ষা করুন।";
+  catch(error) {
 
-    console.error(error);
+    status.textContent =
+      "অনুরোধ পাঠানো যায়নি। URL ও ইন্টারনেট যাচাই করুন।";
 
-  } finally {
+  }
 
-    submitButton.disabled = false;
+  finally {
+
+    button.disabled = false;
 
   }
 
