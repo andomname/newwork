@@ -1,15 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Social Demo</title>
 
 <style>
-
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +17,7 @@ body {
   font-family: Arial, sans-serif;
   background: #f0f2f5;
   min-height: 100vh;
+  color: #1c1e21;
 }
 
 .container {
@@ -37,35 +35,36 @@ body {
 
 .logo {
   color: #1877f2;
-  font-size: 48px;
+  font-size: 46px;
   font-weight: bold;
   margin-bottom: 12px;
 }
 
 .left p {
-  font-size: 23px;
-  color: #1c1e21;
-  line-height: 1.4;
+  font-size: 22px;
+  line-height: 1.5;
 }
 
 .card {
   width: 396px;
   background: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 22px;
+  border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.12);
 }
 
 .notice {
   background: #e7f3ff;
   color: #174a80;
-  padding: 10px;
+  padding: 11px;
   border-radius: 6px;
   font-size: 13px;
-  margin-bottom: 15px;
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
 input {
+  display: block;
   width: 100%;
   padding: 14px;
   margin-bottom: 12px;
@@ -79,7 +78,7 @@ input:focus {
   border-color: #1877f2;
 }
 
-.login {
+.submit-btn {
   width: 100%;
   padding: 13px;
   background: #1877f2;
@@ -91,44 +90,13 @@ input:focus {
   cursor: pointer;
 }
 
-.login:hover {
+.submit-btn:hover {
   background: #166fe5;
 }
 
-.login:disabled {
+.submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-.status {
-  margin-top: 12px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  overflow-wrap: anywhere;
-}
-
-@media(max-width: 768px) {
-
-  .container {
-    flex-direction: column;
-    gap: 25px;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 40px;
-  }
-
-  .left p {
-    font-size: 19px;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 396px;
-  }
-
 }
 
 .forgot {
@@ -137,7 +105,7 @@ input:focus {
   color: #1877f2;
   text-decoration: none;
   font-size: 16px;
-  margin: 16px 0;
+  margin: 17px 0;
 }
 
 .forgot:hover {
@@ -158,13 +126,42 @@ input:focus {
   background: #36b52b;
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
   border-radius: 8px;
 }
 
 .create-account:hover {
   background: #2e9f25;
+}
+
+.status {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+@media(max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 38px;
+  }
+
+  .left p {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 396px;
+  }
 }
 </style>
 </head>
@@ -174,88 +171,94 @@ input:focus {
 <div class="container">
 
   <div class="left">
-
-    <div class="logo">Facebook</div>
+    <div class="logo">Social Demo</div>
 
     <p>
-      পরিখা করার জন্য
+      এটি একটি পরীক্ষামূলক ওয়েব ফর্ম।
+      HTML, CSS এবং Google Sheets সংযোগ শেখার জন্য তৈরি।
     </p>
-
   </div>
-
 
   <div class="card">
 
- 
+    <div class="notice">
+      শিক্ষামূলক ডেমো: এখানে শুধু কাল্পনিক নাম,
+      পরীক্ষামূলক ইমেইল ও সাধারণ নোট ব্যবহার করুন।
+      কোনো পাসওয়ার্ড দেবেন না।
+    </div>
+
     <form id="demoForm">
 
- <input
-  type="text"
-  name="name"
-  placeholder="তোমার ডেমো নাম"
-  maxlength="100"
-  required
->
+      <input
+        type="text"
+        name="name"
+        placeholder="ডেমো নাম"
+        maxlength="100"
+        required
+      >
 
- <input
-  type="text"
-  name="note"
-  placeholder="পরীক্ষামূলক নোট"
-  maxlength="200"
->
+      <input
+        type="email"
+        name="email"
+        placeholder="পরীক্ষামূলক ইমেইল"
+        maxlength="120"
+        required
+      >
 
-      <button class="login" type="submit">
-        Login
+      <input
+        type="text"
+        name="note"
+        placeholder="পরীক্ষামূলক নোট"
+        maxlength="200"
+      >
+
+      <button class="submit-btn" type="submit">
+        Submit Demo
       </button>
 
-      <a href="#" class="forgot" onclick="return false;">
-  Forgot password?
-</a>
+      <a href="#" class="forgot"
+         onclick="return false;">
+        Forgot demo details?
+      </a>
 
-<hr class="divider">
+      <hr class="divider">
 
-<a href="#" class="create-account" onclick="return false;">
-  Create new account
-</a>
+      <a href="#" class="create-account"
+         onclick="return false;">
+        Create demo profile
+      </a>
+
     </form>
 
-    <p id="status" class="status"></p>
+    <p id="status" class="status" aria-live="polite"></p>
 
   </div>
-
 </div>
-
 
 <script>
 
-/********** APPS SCRIPT CONNECTION **********/
-
-// শুধু এই লিংকটি পরিবর্তন করবে
-
+// Google Apps Script Web App URL
 const scriptURL =
 "https://script.google.com/macros/s/AKfycbytSGynLJMPPqF57tIjtAwKOnX81GWspo4nBq1QYzZZuDfaLzn_NzM5bAcUhEZrxdxejA/exec";
 
-
-/********** FORM SUBMISSION **********/
-
 const form = document.getElementById("demoForm");
-
-const status = document.getElementById("status");
+const statusText = document.getElementById("status");
+const submitButton = form.querySelector(".submit-btn");
 
 form.addEventListener("submit", async function(event) {
 
   event.preventDefault();
 
-  const button = form.querySelector("button");
+  if (!form.reportValidity()) {
+    return;
+  }
 
-  button.disabled = true;
-
-  status.textContent = "তথ্য পাঠানো হচ্ছে...";
+  submitButton.disabled = true;
+  statusText.textContent = "তথ্য পাঠানো হচ্ছে...";
 
   try {
 
     const formData = new FormData(form);
-
     const data = new URLSearchParams();
 
     for (const [key, value] of formData.entries()) {
@@ -268,23 +271,21 @@ form.addEventListener("submit", async function(event) {
       body: data
     });
 
-    status.textContent =
-      "অনুরোধ পাঠানো হয়েছে। Google Sheet-এ যাচাই করুন।";
+    statusText.textContent =
+      "অনুরোধ পাঠানো হয়েছে। Google Sheet-এ নতুন Row এসেছে কি না যাচাই করুন।";
 
     form.reset();
 
-  }
+  } catch (error) {
 
-  catch(error) {
+    statusText.textContent =
+      "অনুরোধ পাঠানো যায়নি। ইন্টারনেট ও Apps Script URL পরীক্ষা করুন।";
 
-    status.textContent =
-      "অনুরোধ পাঠানো যায়নি। URL ও ইন্টারনেট যাচাই করুন।";
+    console.error(error);
 
-  }
+  } finally {
 
-  finally {
-
-    button.disabled = false;
+    submitButton.disabled = false;
 
   }
 
